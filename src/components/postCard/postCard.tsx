@@ -1,5 +1,5 @@
 import { Card, styled } from '@mui/material';
-import { colorPalette } from '../styles/colorPalette';
+import { colorPalette } from '../../styles/colorPalette';
 
 export const PostCard = styled(Card)(({ theme }) => ({
   display: 'flex',
