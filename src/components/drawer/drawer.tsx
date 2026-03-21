@@ -21,10 +21,6 @@ export default function TemporaryDrawer() {
     setOpen(newOpen);
   };
 
-  // *****
-  // TODO: Change the structure to allow more List Items with unique Icons in the Future
-  // *****
-
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
