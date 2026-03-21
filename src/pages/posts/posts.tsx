@@ -6,8 +6,8 @@ import {
   Typography,
 } from '@mui/material';
 import { usePosts } from './usePosts';
-import { PostCard } from '../../components/postCard';
 import { colorPalette } from '../../styles/colorPalette';
+import { PostCard } from '../../components/postCard/postCard';
 
 export const Posts = () => {
   const {
@@ -35,6 +35,7 @@ export const Posts = () => {
           display: 'flex',
           justifyContent: 'center',
           mt: '3rem',
+          mb: '2rem',
         }}
       >
         <Pagination
@@ -49,13 +50,13 @@ export const Posts = () => {
       <Grid
         container
         gap={6}
+        spacing={4}
         flexWrap="wrap"
         display="flex"
         justifyContent="center"
-        sx={{ margin: '2rem 10rem 10rem 10rem' }}
       >
         {data?.data?.map((post) => (
-          <Grid size={{ xs: 12, md: 4 }} key={post.id}>
+          <Grid size={{ xs: 10, md: 4, lg: 3 }} key={post.id}>
             <PostCard>
               <CardContent>
                 <Typography variant="button" color={colorPalette.neutral[0]}>
