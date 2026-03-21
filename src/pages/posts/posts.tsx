@@ -1,5 +1,4 @@
 import {
-  Card,
   CardContent,
   Container,
   Grid,
@@ -7,6 +6,8 @@ import {
   Typography,
 } from '@mui/material';
 import { usePosts } from './usePosts';
+import { PostCard } from '../../components/postCard';
+import { colorPalette } from '../../styles/colorPalette';
 
 export const Posts = () => {
   const {
@@ -29,47 +30,42 @@ export const Posts = () => {
 
   return (
     <>
-      <Grid
-        container
-        m={10}
-        gap={6}
-        flexWrap="wrap"
-        display="flex"
-        justifyContent="center"
-      >
-        {data?.data?.map((post) => (
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Card
-              key={post.id}
-              sx={{
-                display: 'flex',
-                justifyContent: 'start',
-                alignItems: 'start',
-                width: '100%',
-                height: '150px',
-                p: 2,
-              }}
-            >
-              <CardContent>
-                <Typography variant="button">{post.title}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
       <Container
         sx={{
           display: 'flex',
           justifyContent: 'center',
+          mt: '3rem',
         }}
       >
         <Pagination
-          count={20}
+          count={17}
           page={currentPage}
           onChange={handleChange}
           siblingCount={isMobile ? 1 : 3}
+          color="primary"
         />
       </Container>
+
+      <Grid
+        container
+        gap={6}
+        flexWrap="wrap"
+        display="flex"
+        justifyContent="center"
+        sx={{ margin: '2rem 10rem 10rem 10rem' }}
+      >
+        {data?.data?.map((post) => (
+          <Grid size={{ xs: 12, md: 4 }} key={post.id}>
+            <PostCard>
+              <CardContent>
+                <Typography variant="button" color={colorPalette.neutral[0]}>
+                  {post.title}
+                </Typography>
+              </CardContent>
+            </PostCard>
+          </Grid>
+        ))}
+      </Grid>
     </>
   );
 };
