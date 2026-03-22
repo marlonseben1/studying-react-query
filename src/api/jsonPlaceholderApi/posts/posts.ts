@@ -1,6 +1,6 @@
 import axios from 'axios';
 import type { ApiResponse, PostItem } from './posts.types';
-import { apiUrls } from '../../config';
+import { apiUrls } from '../../../config';
 
 export const postsApi = {
   fetchPosts(pageNum: number): Promise<ApiResponse<PostItem[]>> {
