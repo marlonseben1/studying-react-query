@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { useIsMobile } from '../../hooks/useIsMobile';
-import { postsApi } from '../../api/posts';
+import { postsApi } from '../../api/jsonPlaceholderApi/posts';
 
 export const usePosts = () => {
   const [currentPage, setCurrentPage] = useState(1);
