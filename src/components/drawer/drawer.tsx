@@ -13,9 +13,16 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import { IconButton } from '@mui/material';
 import { useState } from 'react';
 import { RocketLaunch } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    setOpen(false);
+  };
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -25,7 +32,7 @@ export default function TemporaryDrawer() {
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => handleNavigation('/')}>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
@@ -34,7 +41,7 @@ export default function TemporaryDrawer() {
         </ListItem>
         <Divider />
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => handleNavigation('/json-placeholder')}>
             <ListItemIcon>
               <CodeIcon />
             </ListItemIcon>
@@ -42,7 +49,7 @@ export default function TemporaryDrawer() {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => handleNavigation('star-wars')}>
             <ListItemIcon>
               <RocketLaunch />
             </ListItemIcon>
