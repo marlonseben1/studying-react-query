@@ -10,17 +10,9 @@ import { colorPalette } from '../../styles/colorPalette';
 import { PostCard } from '../../components/postCard/postCard';
 
 export const Posts = () => {
-  const {
-    data,
-    error,
-    isError,
-    isMobile,
-    isLoading,
-    currentPage,
-    handleChange,
-  } = usePosts();
+  const { data, error, isError, isMobile, currentPage, handleChange } =
+    usePosts();
 
-  if (isLoading) return <Typography variant="h6">Loading...</Typography>;
   if (isError)
     return (
       <Typography variant="h6">

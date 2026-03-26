@@ -13,7 +13,7 @@ export const usePosts = () => {
     setCurrentPage(value);
   };
 
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isError, error } = useQuery({
     queryKey: [QUERY_KEYS.posts, currentPage],
     queryFn: () => postsApi.fetchPosts(currentPage),
   });
@@ -31,7 +31,6 @@ export const usePosts = () => {
     error,
     isError,
     isMobile,
-    isLoading,
     currentPage,
     handleChange,
   };
