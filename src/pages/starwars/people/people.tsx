@@ -4,10 +4,8 @@ import { Box, Stack, Typography } from '@mui/material';
 import { PersonCard } from '../../../components/personCard/person';
 
 export const People = () => {
-  const { data, error, isError, isLoading, hasNextPage, fetchNextPage } =
-    usePeople();
+  const { data, error, isError, hasNextPage, fetchNextPage } = usePeople();
 
-  if (isLoading) return <h3>Loading...</h3>;
   if (isError) return <h3>Error! {error?.toString()}</h3>;
 
   return (
